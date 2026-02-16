@@ -1,25 +1,29 @@
 use clap::Parser;
 use rcli::{
-    process_csv, process_decode, process_encode, process_genpass, Base64SubCommand, Opts,
-    Subcommand,
+    process_csv, process_csv_show, process_decode, process_encode, process_genpass,
+    Base64SubCommand, Opts, Subcommand,
 };
 
 fn main() -> anyhow::Result<()> {
     let opts = Opts::parse();
     match opts.cmd {
         Subcommand::Csv(opts) => {
-            let output = if let Some(output) = opts.output {
-                output.clone()
+            if opts.show {
+                process_csv_show(&opts.input, opts.header, &opts.delimiter)?
             } else {
-                format!("output.{}", opts.format)
-            };
-            process_csv(
-                &opts.input,
-                opts.header,
-                &opts.delimiter,
-                output,
-                opts.format,
-            )?
+                let output = if let Some(output) = opts.output {
+                    output.clone()
+                } else {
+                    format!("output.{}", opts.format)
+                };
+                process_csv(
+                    &opts.input,
+                    opts.header,
+                    &opts.delimiter,
+                    output,
+                    opts.format,
+                )?
+            }
         }
         Subcommand::GenPass(opts) => {
             process_genpass(

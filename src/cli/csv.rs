@@ -32,6 +32,10 @@ pub struct CvsOpts {
     #[arg(short, long, default_value_t = true)]
     pub header: bool,
 
+    /// Show CSV content in terminal instead of converting
+    #[arg(long)]
+    pub show: bool,
+
     /// Print help (uses --help only)
     #[arg(long, action = ArgAction::Help, help = "Print help information")]
     pub help: Option<bool>,
