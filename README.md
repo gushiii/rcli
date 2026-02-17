@@ -5,10 +5,12 @@
 ## 功能特性
 
 ### 📊 CSV 处理
+
 - 支持多种输出格式：JSON、YAML、TOML
 - 自定义分隔符
 
 ### 🔐 密码生成
+
 - 生成高强度随机密码
 - 可配置密码长度（默认 16 字符）
 - 灵活选择字符类型：
@@ -18,6 +20,7 @@
   - 特殊符号 (!@#$%^&*_.?)
 
 ### 🔤 Base64 编码/解码
+
 - Base64 编码功能
 - Base64 解码功能
 - 支持多种格式
@@ -26,9 +29,11 @@
 ## 安装
 
 ### 前置条件
+
 - Rust 1.70+ 版本
 
 ### 构建
+
 ```bash
 git clone <repository-url>
 cd rcli
@@ -42,11 +47,13 @@ cargo build --release
 ### CSV 处理
 
 显示 CSV 文件内容：
+
 ```bash
 rcli csv -i assets/juventus.csv
 ```
 
 转换 CSV 为 JSON：
+
 ```bash
 rcli csv -i input.csv -o output.json -f json
 ```
@@ -54,6 +61,7 @@ rcli csv -i input.csv -o output.json -f json
 支持的格式：json、yaml、toml
 
 可用选项：
+
 - `-i, --input <path>` - CSV 文件路径（必需）
 - `-o, --output <path>` - 输出文件路径
 - `-f, --format <format>` - 输出格式（json/yaml/toml）
@@ -62,21 +70,25 @@ rcli csv -i input.csv -o output.json -f json
 ### 密码生成
 
 生成默认长度（16 字符）的密码：
+
 ```bash
 rcli genpass
 ```
 
 生成指定长度的密码：
+
 ```bash
 rcli genpass -l 32
 ```
 
 生成不包含特殊符号的密码：
+
 ```bash
 rcli genpass --no-symbol
 ```
 
 可用选项：
+
 - `-l, --length <n>` - 密码长度（默认 16）
 - `--no-upper` - 禁用大写字母
 - `--no-lower` - 禁用小写字母
@@ -86,27 +98,31 @@ rcli genpass --no-symbol
 ### Base64 编码/解码
 
 编码字符串：
+
 ```bash
 echo "Hello, World!" | rcli base64 encode
 ```
 
 从文件编码：
+
 ```bash
 rcli base64 encode -i input.txt
 ```
 
 解码字符串：
+
 ```bash
 echo ""SGVsbG8sIFdvcmxkIQ=="" | rcli base64 decode
 ```
 
 支持的格式：
+
 - `standard` - 标准 Base64
 - `urlsafe` - URL 安全的 Base64
 
 ## 项目结构
 
-```
+```text
 rcli/
 ├── src/
 │   ├── main.rs           # 主程序入口
@@ -139,6 +155,7 @@ rcli/
 ## 示例
 
 ### CSV 转换示例
+
 ```bash
 # 查看 CSV 文件内容
 rcli csv -i data.csv
@@ -147,10 +164,11 @@ rcli csv -i data.csv
 rcli csv -i data.csv -o output.json -f json
 
 # 使用自定义分隔符
-rcli csv -i data.tsv -o output.json -f json --delimiter '	'
+rcli csv -i data.tsv -o output.json -f json --delimiter ' '
 ```
 
 ### 密码生成示例
+
 ```bash
 # 生成 16 字符密码
 rcli genpass
@@ -163,6 +181,7 @@ rcli genpass -l 20 --no-digits --no-symbol
 ```
 
 ### Base64 示例
+
 ```bash
 # 编码
 echo "hello world!" | rcli base64 encode
@@ -177,7 +196,7 @@ rcli base64 decode -i encoded.txt
 
 ## 许可证
 
-MIT License - 详见 LICENSE 文件
+MIT License - 详见 [LICENSE](LICENSE)
 
 ## 作者
 
