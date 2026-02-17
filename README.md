@@ -1,6 +1,6 @@
 # RCLI
 
-一个用 Rust 构建的强大命令行工具，提供 CSV 处理、密码生成和 Base64 编码/解码功能。
+一个用 Rust 构建的命令行工具，提供 CSV 处理、密码生成和 Base64 编码/解码功能。
 
 ## 功能特性
 
@@ -49,7 +49,7 @@ cargo build --release
 显示 CSV 文件内容：
 
 ```bash
-rcli csv -i assets/juventus.csv
+rcli csv -i assets/juventus.csv --show
 ```
 
 转换 CSV 为 JSON：
