@@ -156,43 +156,15 @@ rcli/
 
 ### CSV 转换示例
 
-```bash
-# 查看 CSV 文件内容
-rcli csv -i data.csv
-
-# 转换为 JSON
-rcli csv -i data.csv -o output.json -f json
-
-# 使用自定义分隔符
-rcli csv -i data.tsv -o output.json -f json --delimiter ' '
-```
+![CSV 转换示例](assets/csv.gif)
 
 ### 密码生成示例
 
-```bash
-# 生成 16 字符密码
-rcli genpass
-
-# 生成 32 字符密码
-rcli genpass -l 32
-
-# 生成仅包含字母的 20 字符密码
-rcli genpass -l 20 --no-digits --no-symbol
-```
+![密码生成示例](assets/genpass.gif)
 
 ### Base64 示例
 
-```bash
-# 编码
-echo "hello world!" | rcli base64 encode
-
-# 解码
-echo "SGVsbG8sIFJ1c3Qh" | rcli base64 decode
-
-# 使用文件
-rcli base64 encode -i myfile.txt
-rcli base64 decode -i encoded.txt
-```
+![Base64 示例](assets/base64.gif)
 
 ## 许可证
 
